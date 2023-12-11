@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Api</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/css.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script src="script.js"></script>
+      <script src="book"></script>
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>
+   <body>
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                     </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="what-we.html"> LAB Javascript</a>
+                     </li>
+
+                     <li class="nav-item active">
+                        <a class="nav-link" href="api.html">Api</a>
+                     </li>
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="chard.html">Chart</a>
+                     </li>
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="form.html">Form google sheet</a>
+                     </li> 
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                     </li>
+
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="login_bt">
+                        <ul>
+                           <li><a href="#"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </form>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="contact_taital">API By Jedsada</h1>
+               </div>
+            </div>
+
+            <br> <br> <br>
+           <center> <h3 class="projects__row-content-title">API Parameter</h3>
+   <input type="text" class="contact__form-input" id="posterfinder" style="width:300px;" placeholder="ชื่อ anime">
+<br><br><button><a class="btn btn--med btn--theme dynamicBgClr" onclick="getAnimePoster()">Get Image</a></button><br><br>
+<script>
+async function getAnimePoster(){
+  const parameterValue = document.getElementById('posterfinder').value; // แปลง id ของ input ให้เข้าในตัวแปร parameterValue 
+
+  const posterAPI = `https://api.jikan.moe/v4/characters?q=${parameterValue}`; // url api ค้นหารูป อานิเมาะ โดยใช้ตัวแปร parameterValue 
+  fetch(posterAPI).then(responsePoster =>{
+    if(!responsePoster.ok){
+      throw new Error(`Network response was not ok: ${responseImage.status}`); // check error
+    }
+    return responsePoster.json();
+  }).then(poster =>{
+    console.log(poster.data[0].images.webp.image_url); // ดึงข้อมูลออกจาก path
+    const PosterImage = document.getElementById('PosterImage');
+    PosterImage.src = poster.data[0].images.webp.image_url; // แทนค่า src ใน <img> ที่มี ID เป็น PosterImage
+  })
+}
+</script>
+<img src="" id="PosterImage" alt="Random Poster" width="300" /></center>
+         </div>
+      </div>
+
+
+      <div class="contact_section_2">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="mail_section map_form_container">
+                  <div class="box">
+      <div class="api" id="coinRatesContainer">
+         <center><h2>Coin Rates</h2>
+         <div id="lastUpdateTime">
+             <label>Last Update Time: 12:49:57 AM</label></center>
+         </div>
+         <div id="prices" style="text-align: left; padding: 0 0 0 40px;">
+             <ul class="list-group list-group-numbered">
+                 <li class="list-group-item">1INCH: </li>
+                 <li class="list-group-item">AAVE: </li>
+                 <li class="list-group-item">ABT: </li>
+                 <li class="list-group-item">ACH: </li>
+                 <li class="list-group-item">ACS: </li>
+                 <li class="list-group-item">ADA: </li>
+                 <li class="list-group-item">AED: </li>
+                 <li class="list-group-item">BTC: </li>
+                 <li class="list-group-item">ETH: </li>
+             </ul>
+         </div>
+     </div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contact_section_2">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="mail_section map_form_container">
+            <div class="box">
+               <center>
+                  <label><h3>Random Anime</h3></label>
+<img src="images/2c2446e0ec53030fa7239da5fc7a44b6.jpg" id="animeimage" width="300" />
+<p class="projects__row-content-desc" id="catcat"><br>- Annie Attack On Titan</p>
+<button><a onclick="getRandomQuote()">CHANGE THE TEXT</a></button>
+</center>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+function getRandomQuote() {
+  const apiUrl = 'https://animechan.xyz/api/random';
+  fetch(apiUrl).then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.status}`);
+    }
+    return response.json();
+  })
+    .then(dataText => {
+      console.log(dataText);
+      const imageAPI = `https://api.jikan.moe/v4/characters?q=${dataText.character}`
+      fetch(imageAPI).then(responseImage =>{
+        if(!responseImage.ok){
+          throw new Error(`Network response was not ok: ${responseImage.status}`);
+        }
+        return responseImage.json();
+      }).then(image => {
+        // console.log(image);
+        console.log(image.data[0].images.webp.image_url);
+        const animeimage = document.getElementById('animeimage');
+        animeimage.src = image.data[0].images.webp.image_url;
+      })
+      document.getElementById("catcat").innerHTML = dataText.quote + "<br>- " + dataText.character +" ("+dataText.anime+")";
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}
+</script>
+
+
+
+
+
+
+
+
+     
+      <!-- contact section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="location_text">
+                     <ul>
+                        <li>
+                           <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                           <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="footer_logo"><a href="indexz.html"></div>
+               <div class="social_icon">
+                  <ul>
+                     <li><a href="https://www.facebook.com/jedsada.chantbut"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+               <li><a href="https://www.instagram.com/jjedsadaa_/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+               
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2023 Edit by Jedsada KKTECH</p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+   </body>
+</html>
+
+
+<script>function myFunction() {
+    fetch("https://catfact.ninja/fact")
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            let txt = " ";
+            for (let x in data) {
+                txt += data[x] + " ";
+                document.getElementById("demo2").innerHTML = txt;
+            };
+
+            return data;
+        })
+
+
+}
+
+</script>
+
+
+
